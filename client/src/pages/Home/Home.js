@@ -10,25 +10,25 @@ export default function Home() {
   const dispatch = useAuthDispatch();
   const logout = () => {
     dispatch({ type: "LOGOUT" });
+    window.location.href = "/login";
   };
 
   return (
     <Fragment>
-      <Row className="bg-black justify-content-around mb-1">
+      <Row className="justify-content-around mb-1 navbar">
         <Link to="/login">
           <Button variant="link">Login</Button>
         </Link>
         <Link to="/register">
-          {/* <Button variant='link'>Register</Button> */}
+          <Button variant="link">Register</Button>
         </Link>
-
         <Button variant="link" onClick={logout}>
           Logout
         </Button>
       </Row>
-      <Row className="">
-        <Users></Users>
-        <Messages></Messages>
+      <Row className="bg-white">
+        <Users />
+        <Messages />
       </Row>
     </Fragment>
   );

@@ -1,4 +1,3 @@
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ApolloProvider from "./ApolloProvider";
 import { Container } from "react-bootstrap";
@@ -8,6 +7,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login";
 import { AuthProvider } from "./context/auth";
 import { MessageProvider } from "./context/messages";
+import "./App.css";
 
 import DynamicRoute from "./util/DynamicRoutes";
 

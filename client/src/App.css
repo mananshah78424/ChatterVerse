@@ -1,7 +1,9 @@
 :root {
   --yellow: #cbf230;
   --white: #ffffff;
+  --paragraph-margin-bottom: 0;
 }
+
 .register-row {
   background-color: var(--yellow);
 }
@@ -9,7 +11,63 @@
   border: 0px;
   border-radius: 0;
 }
+.user-div-name-and-message {
+  margin-left: 10px;
+}
+.user-image {
+  width: 70px;
+  height: 70px;
+  object-fit: "cover";
+  border-radius: 50%;
+}
+.user-bar {
+  background-color: rgb(245, 245, 245);
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 20px;
+}
+.message-box {
+  height: 500px;
+  overflow-y: scroll;
+  background-color: rgb(255, 255, 255);
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 
-.user-div {
-  background-color: rgb(82, 74, 74);
+p {
+  margin: 2px;
+}
+.message-rec {
+  background-color: rgb(245, 245, 245);
+}
+
+.message-sent {
+  background-color: #1877f2;
+}
+.form-control:focus {
+  color: rgba(0, 0, 0, 0.5);
+}
+.message-form-send-message {
+  border: 0;
+  background-color: rgb(245, 245, 245);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.info-text {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.navbar {
+  background-color: rgb(245, 245, 245);
+}
+.navbar > * {
+  flex-shrink: 0;
+  width: 0;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
 }
