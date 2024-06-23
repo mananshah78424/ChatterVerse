@@ -4,7 +4,9 @@ const { UserInputError, AuthenticationError } = require("apollo-server");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../../config/config.json");
 const { Op } = require("sequelize");
+const { PubSub } = require("graphql-subscriptions");
 
+const pubsub = new PubSub();
 module.exports = {
   Query: {
     getMessages: async (parent, { from }, { user }) => {
@@ -49,11 +51,19 @@ module.exports = {
           to,
           content,
         });
+
+        pubsub.publish("NEW_MESSAGE", { newMessage: message });
         return message;
       } catch (err) {
         console.log(err);
         throw err;
       }
+    },
+  },
+
+  Subscription: {
+    newMessage: {
+      subscribe: () => pubsub.asyncIterator(["NEW_MESSAGE"]),
     },
   },
 };
